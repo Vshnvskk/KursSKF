@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h3>Поиск жилья</h3>
+    {{ wtf.quick_form(form) }}
+    <table class="table table-hover">
+        {% if ads %}
+        {% for ad in ads  %}
+            <tr>
+                <td>
+                    <a href="{{url_for('ad_page', adID=ad.ID_object)}}"> Перейти на страницу объявления </a> <br>
+                    <h5><b>{{ad.name_object}}</b><br> </h5>
+                    <h5>Количество комнат: {{ad.amount_rooms}}<br></h5>
+                    <h5>Цена: {{ad.price}} рублей</h5> <br>
+                </td>
+            </tr>
+        {% endfor %}
+        {% else %}
+        <h4>Квартир с данными параметрами нет:(</h4>
+        {% endif %}
+    </table>
+{% endblock %}

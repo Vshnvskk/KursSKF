@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content%}
+<tr>
+  <td>
+    <h1>{{ ad.name_object }} </h1> <h2 align='right'><b>Цена: {{ad.price}}</b></h2>   <br>
+    <h3> <b> Описание:</b> {{ ad.description }}</h3> <br>
+    <ul class="list-group list-group-horizontal">
+      <h4><li class="list-group-item">Адрес: <b>Г. {{city.name_city}}, р-н {{district.name_district}}, ул. {{street.name_street}}, д. {{house.number}}</b> </li></h4>
+      <h4><li class="list-group-item">Метро: <b>{{subway.name_subway}}</b> </li></h4>
+      <h4><li class="list-group-item">Количество комнат: <b>{{ad.amount_rooms}}</b> </li></h4>
+      <h4><li class="list-group-item">Метраж: <b>{{ad.metr}}</b> </li></h4>
+      <h4><li class="list-group-item">Этаж: <b>{{ad.floor}} из {{house.floorness}}</b> </li></h4>
+    </ul>
+
+  </td>
+</tr>
+{% endblock %}
